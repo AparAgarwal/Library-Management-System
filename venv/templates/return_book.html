@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="96x96" rel="icon" href="../static/assets/books.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>Return Book</title>
+</head>
+<body class="bg">
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('user_dashboard') }}">User Dashboard</a>
+        <a href="{{ url_for('search') }}">Search/Issue</a>
+        <a href="{{ url_for('place_order') }}">Place Order</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    <div class="body">
+        <main class="table" id="return_table">
+            <div class="table__header">
+                <h1>Books Issued by You</h1>
+                <div class="input-group">
+                    <input type="search" id="search" name="search" placeholder="Search">
+                    <i class="material-icons">search</i>
+                </div>
+            </div>
+            <div class="table__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> ISBN <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Title <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Issued Date </th>
+                            <th> Return Date </th>
+                            <th> Return </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for issued_book in issued_books %}
+                            <tr>
+                                <td>{{ issued_book.isbn }}</td>
+                                <td>{{ issued_book.title }}</td>
+                                <td>{{ issued_book.issued_date }}</td>
+                                <td>{{ issued_book.return_date }}</td>
+                                <td>
+                                    <button class="return-button" onclick="returnBook('{{ issued_book.isbn }}')">Return</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/script2.js') }}"></script>
+</body>
+</html>

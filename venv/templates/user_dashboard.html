@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="96x96" rel="icon" href="../static/assets/books.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>User Dashboard</title>
+</head>
+<body class="bg">
+    <header>
+        <h1>User Dashboard</h1>
+    </header>
+    <section class="view">
+        {% set user_first_name = current_user.name.split(' ')[0] %}
+        <h2>Welcome, {{ user_first_name }}!</h2>
+        <h3>Here you can access various functionalities for the Library Management System. Choose from the options below:</h3>
+        <div class="back">
+            <div class="container">
+                <a href="{{ url_for('search') }}"><div class="box" style="--clr:#1e9bff">Search/Issue</div></a>
+                <a href="{{ url_for('return_book') }}"><div class="box" style="--clr:#1e9bff">Return Book</div></a>
+                <a href="{{ url_for('place_order') }}"><div class="box" style="--clr:#1e9bff">Place Order</div></a>
+                <br>
+                <a href="{{ url_for('logout') }}"><div class="box" style="--clr:#1e9bff">Logout</div></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

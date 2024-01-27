@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="image/png" sizes="96x96" rel="icon" href="../static/assets/books.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>Admin Dashboard</title>
+</head>
+<body class="bg">
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <section class="view">
+        <h2>Hi, Admin!</h2>
+        <h3>Choose from the options below:</h3>
+        <div class="back">
+            <div class="container">
+                <a href="{{ url_for('add_user') }}"><div class="box" style="--clr:#1e9bff"> Add User</div></a>
+                <a href="{{ url_for('add_book') }}"><div class="box" style="--clr:#1e9bff">Add Book</div></a>
+                <a href="{{ url_for('issued_books') }}"><div class="box" style="--clr:#1e9bff">Issued Books</div></a>
+                <br>
+                <a href="{{ url_for('view_all_books') }}"><div class="box" style="--clr:#1e9bff">View All Books</div></a>
+                <a href="{{ url_for('view_orders') }}"><div class="box" style="--clr:#1e9bff">View Orders</div></a>
+                <a href="{{ url_for('logout') }}"><div class="box" style="--clr:#1e9bff">Logout</div></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

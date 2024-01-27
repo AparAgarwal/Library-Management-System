@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="96x96" rel="icon" href="../static/assets/books.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>View Orders</title>
+</head>
+<body class="bg">
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+        <a href="{{ url_for('add_user') }}">Add User</a>
+        <a href="{{ url_for('add_book') }}">Add Book</a>
+        <a href="{{ url_for('issued_books') }}">Issued Books</a>
+        <a href="{{ url_for('view_all_books') }}">View All Books</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    <div class="body">
+        <main class="table" id="book_table">
+        <div class="table__header">
+            <h1>Pending Orders</h1>
+            <div class="input-group">
+                <input type="search" id="search" name="search" placeholder="Search">
+                <i class="material-icons">search</i>
+            </div>
+        </div>
+        <div class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> User Id <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Title <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Author <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Order Date <span class="icon-arrow">&UpArrow;</span></th>
+                        <!-- <th> Mark as Completed</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.userId }}</td>
+                            <td>{{ order.BookName }}</td>
+                            <td>{{ order.Author }}</td>
+                            <td>{{ order.orderDate }}</td>
+                            <!-- <td>
+                                <button class="completed-button" onclick="completed('{{ order.userId }}')">Completed</button>
+                            </td> -->
+                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/script2.js') }}"></script>
+</body>
+</html>

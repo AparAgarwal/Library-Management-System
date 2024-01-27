@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="96x96" rel="icon" href="../static/assets/books.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>User Login</title>
+</head>
+<body class="bg">
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <section class="main">
+        <h2>User Login</h2>
+        <form action="#" method="post">
+            <!-- Form fields for user login -->
+            <div class="form_wrapper">
+                <input type="text" id="userUsername" name="userUsername" required>
+                <label for="userUsername">Username</label>
+                <i class="material-icons">person</i>
+            </div>
+            <div class="form_wrapper">
+                <input type="password" id="userPassword" name="userPassword" required>
+                <label for="userPassword">Password</label>
+                <i class="material-icons">lock</i>
+            </div>
+            {% if invalid_credentials %}
+            <p class="error-message">Invalid username or password</p>
+            {% endif %}
+            <button type="submit">Login</button>
+        </form>
+    </section>
+</body>
+</html>

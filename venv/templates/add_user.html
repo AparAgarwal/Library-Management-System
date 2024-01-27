@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="96x96" rel="icon" href="../static/assets/books.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>Add User</title>
+</head>
+<body class="bg">
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+        <a href="{{ url_for('add_book') }}">Add Book</a>
+        <a href="{{ url_for('issued_books') }}">Issued Books</a>
+        <a href="{{ url_for('view_all_books') }}">View All Books</a>
+        <a href="{{ url_for('view_orders') }}">View Orders</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    <section class="main">
+        <h2>Add User</h2>
+        <form action="{{ url_for('add_user') }}" method="post">
+            <div class="form_wrapper">
+                <input type="text" id="newUserId" name="newUserId" required>
+                <label for="newUserId">ID</label>
+            </div>
+            <div class="form_wrapper">
+                <input type="text" id="newUserName" name="newUserName" required>
+                <label for="newUserName">Name</label>
+            </div>
+            <div class="form_wrapper">
+                <input type="text" id="newUserUsername" name="newUserUsername" required>
+                <label for="newUserUsername">Username</label>
+            </div>
+            <div class="form_wrapper">
+                <input type="password" id="newUserPassword" name="newUserPassword" required>
+                <label for="newUserPassword">Password</label>
+            </div>
+            {% if success_message %}
+            <p class="success">{{ success_message }}</p>
+            {% endif %}
+            <button type="submit">Add New User</button>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="96x96" rel="icon" href="../static/assets/books.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>Place Order</title>
+</head>
+<body class="bg">
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('user_dashboard') }}">User Dashboard</a>
+        <a href="{{ url_for('search') }}">Search/Issue</a>
+        <a href="{{ url_for('return_book') }}">Return Book</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    <section class="main">
+        <h2>Place Order</h2>
+        <form action="#" method="post">
+            <!-- Form fields for placing an order -->
+            <div class="form_wrapper">
+                <input type="text" id="authorName" name="authorName" required>
+                <label for="authorName">Author Name</label>
+            </div>
+            <div class="form_wrapper">
+                <input type="text" id="bookTitle" name="bookTitle" required>
+                <label for="bookTitle">Book Title</label>
+            </div>
+            {% if message %}
+            <p class="error-message">{{ message }}</p>
+            {% endif %}
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+</body>
+</html>

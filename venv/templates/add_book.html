@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link type="image/png" sizes="96x96" rel="icon" href="../static/assets/books.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <title>Add Book</title>
+</head>
+<body class="bg">
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+        <a href="{{ url_for('add_user') }}">Add User</a>
+        <a href="{{ url_for('issued_books') }}">Issued Books</a>
+        <a href="{{ url_for('view_all_books') }}">View All Books</a>
+        <a href="{{ url_for('view_orders') }}">View Orders</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    <section class="main">
+        <h2>Add Book</h2>
+        <form action="#" method="post">
+            <!-- Form fields for adding a book -->
+            <div class="form_wrapper">
+                <input type="text" id="bookISBN" name="bookISBN" required>
+                <label for="bookISBN">ISBN</label>
+            </div>
+            <div class="form_wrapper">
+                <input type="text" id="bookTitle" name="bookTitle" required>
+                <label for="bookTitle">Title</label>
+            </div>
+            <div class="form_wrapper">
+                <input type="text" id="bookAuthor" name="bookAuthor" required>
+                <label for="bookAuthor">Author</label>
+            </div>
+            <div class="form_wrapper">
+                <input type="text" id="bookGenre" name="bookGenre" required>
+                <label for="bookGenre">Genre</label>
+            </div>
+            <div class="form_wrapper">
+                <input type="text" id="bookQuantity" name="bookQuantity" inputmode="numeric" required>
+                <label for="bookQuantity">Quantity</label>
+            </div>
+            {% if success_message %}
+            <p class="success">{{ success_message }}</p>
+            {% endif %}
+            <button type="submit">Add Book</button>
+        </form>
+    </section>
+</body>
+</html>
