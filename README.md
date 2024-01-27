@@ -31,7 +31,7 @@ Now for installing the required tools, copy the following command.
     pip install -r requirements.txt
 
 ### Creating the Database
-Follow the instructions mentioned in [create DB](createDB.txt) file.
+Follow the instructions mentioned in [create DB](venv/createDB.txt) file.
 
 ### Deployment
 Open the command prompt in venv folder and activate virtual environment.
