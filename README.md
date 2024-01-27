@@ -42,15 +42,17 @@ Now type the following command.
 > It will start the local server on which the app will be running. Open the server and all set.
 
 ## Screenshots
-#### INDEX
-![screenshots](screenshots/ss.png)
-#### ADMIN LOGIN
-![screenshots](screenshots/ss1.png)
-#### USER LOGIN
-![screenshots](screenshots/ss2.png)
-#### VIEW BOOKS
-![screenshots](screenshots/ss3.png)
-#### ISSUE BOOKS
-![screenshots](screenshots/ss4.png)
-#### RETURN BOOKS
-![screenshots](screenshots/ss5.png)
+### INDEX
+![screenshots](venv/screenshots/ss.png)
+### ADMIN LOGIN
+![screenshots](venv/screenshots/ss1.png)
+### USER LOGIN
+![screenshots](venv/screenshots/ss2.png)
+### VIEW BOOKS
+![screenshots](venv/screenshots/ss3.png)
+### ISSUE BOOKS
+![screenshots](venv/screenshots/ss4.png)
+### RETURN BOOKS
+![screenshots](venv/screenshots/ss5.png)
+
+> **NOTE** You need to enter the details of books through add books section in admin interface.
